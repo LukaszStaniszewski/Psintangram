@@ -13,7 +13,6 @@ export class CardComponent implements OnChanges {
   ngOnChanges(): void {
     const breedName = this.adjustBreedName();
     this.wikiLink = `https://en.wikipedia.org/wiki/${breedName}`;
-    console.log(this.wikiLink);
   }
 
   adjustBreedName() {
@@ -24,8 +23,6 @@ export class CardComponent implements OnChanges {
     while (breedName === undefined) {
       for (let breedQuery of splitedUrl) {
         if (breedQuery.match(/-/i)) {
-          //  const breed = breedQuery.split('-');
-          //  return (breedName = `${breed[1]}_${breed[0]}`);
           return (breedName = breedQuery.split('-').join('_'));
         }
       }

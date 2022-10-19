@@ -10,20 +10,24 @@ export type DogBreeds = string[];
 })
 export class HomePageComponent implements OnInit {
   dogBreeds: DogBreeds = [];
-  breedImage: string | undefined;
+  breedImage?: string | null;
 
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
+    this.breedImage = sessionStorage.getItem('image');
     this.apiService.getDogBreeds().subscribe((data) => {
       this.adaptList(data);
     });
   }
 
   setChoosenBreed(breedName: string) {
-    if (!breedName) return;
+    const prevName = sessionStorage.getItem('prevName');
+    if (!breedName || breedName === prevName) return;
     this.apiService.getBreedImage(breedName).subscribe((data) => {
       this.breedImage = data.message;
+      sessionStorage.setItem('image', this.breedImage);
+      sessionStorage.setItem('prevName', breedName);
     });
   }
 

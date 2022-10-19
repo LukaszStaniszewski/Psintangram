@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { catchError, retry, shareReplay } from 'rxjs/operators';
 
 export type ApiDogBreeds = {
   message: {
@@ -64,7 +64,7 @@ export class ApiService {
     );
   }
 
-  //   makeIntentionalError() {
-  //     return this.http.get('not/a/real/url').pipe(catchError(this.handleError));
-  //   }
+  makeIntentionalError() {
+    return this.http.get('not/a/real/url').pipe(catchError(this.handleError));
+  }
 }

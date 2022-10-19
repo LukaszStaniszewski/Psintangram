@@ -1,5 +1,7 @@
-<select #breeds (change)="setSelectedOption(breeds)" class="dropdown">
-  <option value="dropdown--default" hidden selected>Wybierz rasę</option>
+<select #selected (change)="setSelectedOption(selected)" class="dropdown">
+  <option hidden selected>
+    {{ selectedBreed }}
+  </option>
 
-  <option #selected *ngFor="let breed of dogBreeds">{{ breed }}</option>
+  <option #selected2 *ngFor="let breed of dogBreeds">{{ breed }}</option>
 </select>
