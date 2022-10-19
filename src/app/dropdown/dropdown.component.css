@@ -1,0 +1,15 @@
+.dropdown {
+  position: relative;
+  padding: 0.5rem 1rem;
+  border: 1px solid black;
+}
+
+.dropdown select {
+  font-size: 1.5rem;
+  height: max-content;
+  line-height: max-content;
+  text-align: left;
+  outline: none;
+  pointer-events: all;
+  border: none;
+}

@@ -1,0 +1,69 @@
+.card {
+  position: relative;
+  width: 500px;
+  height: 400px;
+  background-color: grey;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card::before,
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  background-color: grey;
+  transition: 0.5s;
+  z-index: -1;
+}
+
+.card:hover::before {
+  transform: rotate(15deg);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+}
+.card:hover::after {
+  transform: rotate(7.5deg);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+}
+
+.imagebox {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  bottom: 10px;
+  right: 10px;
+  background-color: #222;
+  transition: 0.5s;
+  z-index: 2;
+}
+.imagebox img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card:hover .imagebox {
+  bottom: 80px;
+}
+
+.details {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  height: 50px;
+  text-align: center;
+}
+
+.details h2 {
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
