@@ -3,13 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 
-export interface Config {
-  heroesUrl: string;
-  textfile: string;
-  date: any;
-}
-
-type ApiDogBreeds = {
+export type ApiDogBreeds = {
   message: {
     [key: string]: string[];
   };
