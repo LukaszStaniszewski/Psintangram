@@ -1,9 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  HttpClient,
-  HttpErrorResponse,
-  HttpHeaders,
-} from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 
@@ -33,27 +29,25 @@ export class ApiService {
 
   getBreedImage(breedName: string) {
     if (this.doesItHaveSubBread(breedName)) {
-      const breed = breedName.split(':');
+      const breed = breedName.split(' ');
       const mainBreed = breed[0].trim();
       const subBread = breed[1].trim();
       return this.http
         .get<ApiBreedImage>(
           `https://dog.ceo/api/breed/${mainBreed}/${subBread}/images/random`
-          //   { headers: headers }
         )
         .pipe(retry(3), catchError(this.handleError));
     }
-    //  const headers = new HttpHeaders({ 'Access-Control-Allow-Origin': '*' });
+
     return this.http
       .get<ApiBreedImage>(
         `https://dog.ceo/api/breed/${breedName}/images/random`
-        //   { headers: headers }
       )
       .pipe(retry(3), catchError(this.handleError));
   }
 
   doesItHaveSubBread(breedName: string) {
-    return breedName.match(/:/i) ? true : false;
+    return breedName.match(/\s/i) ? true : false;
   }
 
   private handleError(error: HttpErrorResponse) {

@@ -32,7 +32,7 @@ export class HomePageComponent implements OnInit {
     for (let breed of Object.entries(message)) {
       if (breed[1]?.length) {
         for (let subbread of breed[1]) {
-          this.dogBreeds.push(`${breed[0]}: ${subbread}`);
+          this.dogBreeds.push(`${breed[0]} ${subbread}`);
         }
       } else if (this.dogBreeds.includes(breed[0]) === false) {
         this.dogBreeds.push(breed[0]);
