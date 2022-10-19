@@ -1,1 +1,15 @@
-<p>home-page works!</p>
+<div>
+  <h1>Psintangram</h1>
+
+  <section *ngIf="dogBreeds">
+    <app-dropdown
+      (selectedOption)="setChoosenBreed($event)"
+      [dogBreeds]="dogBreeds"
+    ></app-dropdown>
+  </section>
+  <section *ngIf="breedImage">
+    <app-card [breedImage]="breedImage"></app-card>
+  </section>
+
+  <!-- {{ myData | json }} -->
+</div>

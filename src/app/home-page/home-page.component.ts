@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService, ApiDogBreeds } from '../core/api.service';
 
-export type BreedsList = string[];
+export type DogBreeds = string[];
 
 @Component({
   selector: 'app-home-page',
@@ -9,7 +9,8 @@ export type BreedsList = string[];
   styleUrls: ['./home-page.component.css'],
 })
 export class HomePageComponent implements OnInit {
-  breedList: BreedsList = [];
+  dogBreeds: DogBreeds = [];
+  breedImage: string | undefined;
 
   constructor(private apiService: ApiService) {}
 
@@ -19,15 +20,22 @@ export class HomePageComponent implements OnInit {
     });
   }
 
+  setChoosenBreed(breedName: string) {
+    if (!breedName) return;
+    this.apiService.getBreedImage(breedName).subscribe((data) => {
+      this.breedImage = data.message;
+    });
+  }
+
   adaptList({ message }: ApiDogBreeds) {
     if (!message) return;
     for (let breed of Object.entries(message)) {
       if (breed[1]?.length) {
         for (let subbread of breed[1]) {
-          this.breedList.push(`${breed[0]}: ${subbread}`);
+          this.dogBreeds.push(`${breed[0]}: ${subbread}`);
         }
-      } else if (this.breedList.includes(breed[0]) === false) {
-        this.breedList.push(breed[0]);
+      } else if (this.dogBreeds.includes(breed[0]) === false) {
+        this.dogBreeds.push(breed[0]);
       }
     }
   }
