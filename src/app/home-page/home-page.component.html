@@ -1,13 +1,16 @@
 <div class="main-container">
-  <h1 class="title">Psintangram</h1>
+  <div class="header">
+    <h1 class="title">Psintangram</h1>
+    <img src="assets/dog-paw-cuate.svg" />
+  </div>
   <div class="content">
-    <section *ngIf="dogBreeds">
+    <section class="dropdown-container" *ngIf="dogBreeds">
       <app-dropdown
         (selectedOption)="setChoosenBreed($event)"
         [dogBreeds]="dogBreeds"
       ></app-dropdown>
     </section>
-    <section *ngIf="breedImage">
+    <section class="card-container" *ngIf="breedImage">
       <app-card [breedImage]="breedImage"></app-card>
     </section>
   </div>

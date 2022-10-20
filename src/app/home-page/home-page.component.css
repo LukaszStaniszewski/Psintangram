@@ -1,18 +1,35 @@
 .main-container {
   width: 100vw;
-
   height: 100vh;
-
   padding: 1rem;
 }
 
-.main-container .title {
+.main-container .header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header img {
+  width: 4rem;
+}
+
+.header .title {
   text-align: center;
 }
 
 .main-container .content {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(max-content, 1fr));
   margin-top: 2rem;
-  display: flex;
-  justify-content: center;
-  column-gap: 2rem;
+  place-content: center;
+}
+
+.card-container {
+  grid-column: 4 / 6;
+}
+
+.dropdown-container {
+  grid-column: 2 / 3;
 }

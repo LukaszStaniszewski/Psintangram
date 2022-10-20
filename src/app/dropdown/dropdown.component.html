@@ -4,6 +4,6 @@
       {{ selectedBreed }}
     </option>
 
-    <option *ngFor="let breed of dogBreeds">{{ breed }}</option>
+    <option *ngFor="let breed of dogBreeds">{{ breed | titlecase }}</option>
   </select>
 </div>

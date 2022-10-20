@@ -24,7 +24,7 @@ export class HomePageComponent implements OnInit {
   setChoosenBreed(breedName: string) {
     const prevName = sessionStorage.getItem('prevName');
     if (!breedName || breedName === prevName) return;
-    this.apiService.getBreedImage(breedName).subscribe((data) => {
+    this.apiService.getBreedImage(breedName.toLowerCase()).subscribe((data) => {
       this.breedImage = data.message;
       sessionStorage.setItem('image', this.breedImage);
       sessionStorage.setItem('prevName', breedName);
