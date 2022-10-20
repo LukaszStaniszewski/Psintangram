@@ -1,17 +1,23 @@
 <div class="main-container">
   <div class="header">
-    <h1 class="title">Psintangram</h1>
     <img src="assets/dog-paw-cuate.svg" />
+    <h1 class="title">Psintangram</h1>
   </div>
   <div class="content">
     <section class="dropdown-container" *ngIf="dogBreeds">
       <app-dropdown
-        (selectedOption)="setChoosenBreed($event)"
+        (selectedOption)="getChoosenBreed($event)"
         [dogBreeds]="dogBreeds"
       ></app-dropdown>
     </section>
-    <section class="card-container" *ngIf="breedImage">
-      <app-card [breedImage]="breedImage"></app-card>
+    <section class="card-container">
+      <app-card *ngIf="breedImage" [breedImage]="breedImage"></app-card>
+      <div *ngIf="isLoading">
+        <div class="spinner-container">
+          <div class="spinner-text">loading</div>
+          <div class="spinner-ring"></div>
+        </div>
+      </div>
     </section>
   </div>
 </div>

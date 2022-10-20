@@ -5,3 +5,11 @@
   padding: 0;
   margin: 0;
 }
+
+html {
+  --color-background-primary: #f5f5f2;
+  --color-background-secondary: #00ebc7;
+  --color-background-tertiary: white;
+  --color-header: #00214d;
+  --color-text: #1b2d45;
+}

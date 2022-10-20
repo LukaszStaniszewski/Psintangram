@@ -3,10 +3,7 @@ import {
   Input,
   Output,
   EventEmitter,
-  ViewChild,
-  ElementRef,
   AfterViewInit,
-  HostListener,
 } from '@angular/core';
 import { DogBreeds } from '../home-page/home-page.component';
 
@@ -17,6 +14,7 @@ import { DogBreeds } from '../home-page/home-page.component';
 })
 export class DropdownComponent implements AfterViewInit {
   selectedBreed = 'wybierz rasę';
+
   @Input() dogBreeds: DogBreeds | undefined;
   @Output() selectedOption = new EventEmitter<string>();
 

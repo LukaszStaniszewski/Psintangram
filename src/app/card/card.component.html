@@ -1,8 +1,7 @@
 <div class="card">
   <div class="imagebox"><img src="{{ breedImage }}" alt="" /></div>
   <div class="details">
-    <h2>breedname</h2>
+    <p>Poczytaj więcej o tej rasie na wikipedii:</p>
+    <custom-button [text]="name | titlecase" [url]="wikiLink"></custom-button>
   </div>
 </div>
-<p>Poczytaj więcej o tej rasie na wikipedii:</p>
-<a href="{{ wikiLink }}" target="_blank">Test</a>

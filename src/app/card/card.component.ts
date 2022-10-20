@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges, Output } from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -7,6 +7,7 @@ import { Component, Input, OnChanges } from '@angular/core';
 })
 export class CardComponent implements OnChanges {
   wikiLink: string | undefined;
+  name: string | undefined;
   @Input() breedImage: string | undefined;
   constructor() {}
 
@@ -23,6 +24,7 @@ export class CardComponent implements OnChanges {
     while (breedName === undefined) {
       for (let breedQuery of splitedUrl) {
         if (breedQuery.match(/-/i)) {
+          this.name = breedQuery.split('-').join(' ');
           return (breedName = breedQuery.split('-').join('_'));
         }
       }
