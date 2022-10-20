@@ -15,7 +15,9 @@
     />
   </div>
   <div class="details">
-    <p *ngIf="breedImage">Poczytaj więcej o tej rasie na wikipedii:</p>
+    <p [ngClass]="{ hide: !breedImage }">
+      Poczytaj więcej o tej rasie na wikipedii:
+    </p>
     <custom-button
       [text]="store.breedName | titlecase"
       [url]="wikiLink"

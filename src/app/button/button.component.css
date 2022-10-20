@@ -32,3 +32,9 @@
 .custom-button:hover::before {
   transform: translateX(100%) rotate(45deg);
 }
+
+.disabled {
+  pointer-events: none;
+  background-color: grey;
+  animation: none;
+}

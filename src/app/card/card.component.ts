@@ -19,7 +19,7 @@ export class CardComponent implements OnChanges {
 
   adjustBreedName() {
     const name = this.store.breedName;
-    if (name === VARIABLES.DEFAULT_INPUT_MESSAGE) return;
+    if (name === VARIABLES.DEFAULT_INPUT_MESSAGE || !name) return;
     const adjustedBreedName = name.split(' ').join('_');
 
     return adjustedBreedName;

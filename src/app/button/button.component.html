@@ -1,1 +1,7 @@
-<a class="custom-button" href="{{ url }}" target="_blank">{{ text }}</a>
+<a
+  [ngClass]="{ disabled: !url }"
+  class="custom-button"
+  href="{{ url }}"
+  target="_blank"
+  >{{ text }}</a
+>
