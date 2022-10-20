@@ -14,6 +14,7 @@ export class CardComponent implements OnChanges {
 
   ngOnChanges(): void {
     const adjustedBreedName = this.adjustBreedName();
+    if (!adjustedBreedName) return;
     this.wikiLink = `https://en.wikipedia.org/wiki/${adjustedBreedName}`;
   }
 
