@@ -8,6 +8,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { CardComponent } from './card/card.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { ButtonComponent } from './button/button.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ButtonComponent } from './button/button.component';
     CardComponent,
     DropdownComponent,
     ButtonComponent,
+    SpinnerComponent,
   ],
   imports: [BrowserModule, HttpClientModule],
   providers: [],

@@ -46,7 +46,7 @@ export class ApiService {
       .pipe(retry(3), catchError(this.handleError));
   }
 
-  doesItHaveSubBread(breedName: string) {
+  private doesItHaveSubBread(breedName: string) {
     return breedName.match(/\s/i) ? true : false;
   }
 

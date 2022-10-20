@@ -11,13 +11,7 @@
       ></app-dropdown>
     </section>
     <section class="card-container">
-      <app-card *ngIf="breedImage" [breedImage]="breedImage"></app-card>
-      <div *ngIf="isLoading">
-        <div class="spinner-container">
-          <div class="spinner-text">loading</div>
-          <div class="spinner-ring"></div>
-        </div>
-      </div>
+      <app-card [breedImage]="breedImage"></app-card>
     </section>
   </div>
 </div>

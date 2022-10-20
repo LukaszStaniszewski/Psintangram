@@ -1,4 +1,6 @@
 import { Component, Input, OnChanges, Output } from '@angular/core';
+import { VARIABLES } from 'src/environments/constants';
+import { StoreService } from '../services/store.service';
 
 @Component({
   selector: 'app-card',
@@ -6,30 +8,20 @@ import { Component, Input, OnChanges, Output } from '@angular/core';
   styleUrls: ['./card.component.css'],
 })
 export class CardComponent implements OnChanges {
-  wikiLink: string | undefined;
-  name: string | undefined;
-  @Input() breedImage: string | undefined;
-  constructor() {}
+  wikiLink?: string;
+  @Input() breedImage?: string | null;
+  constructor(public store: StoreService) {}
 
   ngOnChanges(): void {
-    const breedName = this.adjustBreedName();
-    this.wikiLink = `https://en.wikipedia.org/wiki/${breedName}`;
+    const adjustedBreedName = this.adjustBreedName();
+    this.wikiLink = `https://en.wikipedia.org/wiki/${adjustedBreedName}`;
   }
 
   adjustBreedName() {
-    if (!this.breedImage) return;
-    const splitedUrl = this.breedImage.split('/');
-    let breedName;
+    const name = this.store.breedName;
+    if (name === VARIABLES.DEFAULT_INPUT_MESSAGE) return;
+    const adjustedBreedName = name.split(' ').join('_');
 
-    while (breedName === undefined) {
-      for (let breedQuery of splitedUrl) {
-        if (breedQuery.match(/-/i)) {
-          this.name = breedQuery.split('-').join(' ');
-          return (breedName = breedQuery.split('-').join('_'));
-        }
-      }
-      return (breedName = splitedUrl[4]);
-    }
-    return breedName;
+    return adjustedBreedName;
   }
 }

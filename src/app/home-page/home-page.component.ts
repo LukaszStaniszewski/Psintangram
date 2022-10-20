@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService, ApiDogBreeds } from '../serice/api.service';
+import { ApiService, ApiDogBreeds } from '../services/api.service';
+import { StoreService } from '../services/store.service';
 
 export type DogBreeds = string[];
 
@@ -11,9 +12,8 @@ export type DogBreeds = string[];
 export class HomePageComponent implements OnInit {
   dogBreeds: DogBreeds = [];
   breedImage?: string | null;
-  isLoading = false;
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService, private store: StoreService) {}
 
   ngOnInit(): void {
     this.breedImage = sessionStorage.getItem('image');
@@ -25,13 +25,13 @@ export class HomePageComponent implements OnInit {
   getChoosenBreed(breedName: string) {
     const prevName = sessionStorage.getItem('prevName');
     if (!breedName || breedName === prevName) return;
-    this.isLoading = true;
+    this.store.isLoading = true;
     this.apiService.getBreedImage(breedName.toLowerCase()).subscribe((data) => {
       this.breedImage = data.message;
       sessionStorage.setItem('image', this.breedImage);
       sessionStorage.setItem('prevName', breedName);
     });
-    this.isLoading = false;
+    this.store.isLoading = false;
   }
 
   adaptList({ message }: ApiDogBreeds) {

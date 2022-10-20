@@ -1,7 +1,19 @@
 <div class="card">
-  <div class="imagebox"><img src="{{ breedImage }}" alt="" /></div>
+  <div class="imagebox">
+    <img
+      *ngIf="breedImage"
+      src="{{ breedImage }}"
+      alt="{{ store.breedName }}"
+    />
+    <div *ngIf="store.isLoading">
+      <spinner></spinner>
+    </div>
+  </div>
   <div class="details">
     <p>Poczytaj więcej o tej rasie na wikipedii:</p>
-    <custom-button [text]="name | titlecase" [url]="wikiLink"></custom-button>
+    <custom-button
+      [text]="store.breedName | titlecase"
+      [url]="wikiLink"
+    ></custom-button>
   </div>
 </div>

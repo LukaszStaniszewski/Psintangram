@@ -1,7 +1,7 @@
 <div class="dropdown">
   <select #selected (change)="setSelectedOption(selected)">
     <option hidden selected>
-      {{ selectedBreed }}
+      {{ store.breedName }}
     </option>
 
     <option *ngFor="let breed of dogBreeds">
