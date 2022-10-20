@@ -7,9 +7,9 @@
 }
 
 html {
-  --color-background-primary: #f5f5f2;
-  --color-background-secondary: #00ebc7;
+  --color-background-primary: #fafafa;
+  --color-background-secondary: #3b82f6;
   --color-background-tertiary: white;
-  --color-header: #00214d;
+  --color-text-secondary: #f8fafc;
   --color-text: #1b2d45;
 }

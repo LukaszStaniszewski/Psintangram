@@ -1,84 +1,15 @@
-/* .card {
-  position: relative;
-  width: 500px;
-  height: 400px;
-  background-color: #ff5470;
-  border-radius: 4px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-.card::before,
-.card::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 4px;
-  background-color: #ff5470;
-  transition: 0.5s;
-  z-index: -1;
-}
-
-.card:hover::before {
-  transform: rotate(15deg);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
-}
-.card:hover::after {
-  transform: rotate(7.5deg);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
-}
-
-.imagebox {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  bottom: 10px;
-  right: 10px;
-  background-color: #00214d;
-  transition: 0.5s;
-  z-index: 2;
-}
-.imagebox img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.card:hover .imagebox {
-  bottom: 80px;
-}
-
-.details {
-  position: absolute;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
-  height: 50px;
-  text-align: center;
-}
-
-.details h2 {
-  font-weight: 600;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-} */
-
 .card {
   display: flex;
   flex-direction: column;
   border-radius: 25px;
   overflow: hidden;
   background-color: var(--color-background-tertiary);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .card .imagebox {
   background-color: var(--color-background-secondary);
-  /* padding: 2rem; */
   height: 400px;
   display: flex;
   justify-content: center;
@@ -122,35 +53,7 @@
   padding: 1rem 0;
 }
 
-.glowing-button {
-  text-decoration: none;
+.details p {
+  font-size: 1.4rem;
   color: var(--color-text);
-  font-size: 2rem;
-  background-color: var(--color-background-secondary);
-  padding: 15px 60px;
-  display: inline-block;
-  position: relative;
-  transition: all 0.3s;
-  overflow: hidden;
-  border-radius: 15px;
-}
-
-.glowing-button:hover {
-  background-color: var(--color-background-secondary);
-}
-
-.glowing-button::before {
-  content: "";
-  background-color: white;
-  top: 15px;
-  left: 0;
-  width: calc(100% + 40px);
-  height: 50px;
-  position: absolute;
-  transform: translateX(-100%) rotate(45deg);
-  transition: all 0.3s;
-}
-
-.glowing-button:hover::before {
-  transform: translateX(100%) rotate(45deg);
 }

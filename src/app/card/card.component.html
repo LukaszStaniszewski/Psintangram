@@ -8,6 +8,11 @@
     <div *ngIf="store.isLoading">
       <spinner></spinner>
     </div>
+    <img
+      *ngIf="!breedImage && !store.isLoading"
+      src="assets/dog-paw-rafiki.svg"
+      alt="dog-paintng"
+    />
   </div>
   <div class="details">
     <p>Poczytaj więcej o tej rasie na wikipedii:</p>

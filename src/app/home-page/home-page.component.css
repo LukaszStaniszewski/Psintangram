@@ -8,7 +8,7 @@
 .main-container .header {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   gap: 1rem;
 }
 
@@ -17,9 +17,10 @@
 }
 
 .header .title {
-  text-align: center;
   color: var(--color-header);
   font-weight: 500;
+  font-size: 2.7rem;
+  letter-spacing: 1px;
 }
 
 .main-container .content {
