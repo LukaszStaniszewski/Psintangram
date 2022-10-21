@@ -13,14 +13,14 @@ export class CardComponent implements OnChanges {
   constructor(public store: StoreService) {}
 
   ngOnChanges(): void {
-    const adjustedBreedName = this.adjustBreedName();
-    if (!adjustedBreedName) return;
+    const name = this.store.breedName;
+    if (name === VARIABLES.DEFAULT_INPUT_MESSAGE || !name) return;
+    const adjustedBreedName = this.adjustBreedName(name);
+
     this.wikiLink = `https://en.wikipedia.org/wiki/${adjustedBreedName}`;
   }
 
-  adjustBreedName() {
-    const name = this.store.breedName;
-    if (name === VARIABLES.DEFAULT_INPUT_MESSAGE || !name) return;
+  adjustBreedName(name: string): string {
     const adjustedBreedName = name.split(' ').join('_');
 
     return adjustedBreedName;

@@ -1,6 +1,7 @@
 <div class="card">
   <div class="imagebox">
     <img
+      data-test="selected-breed"
       *ngIf="breedImage"
       src="{{ breedImage }}"
       alt="{{ store.breedName }}"
@@ -9,13 +10,14 @@
       <spinner></spinner>
     </div>
     <img
+      data-test="default-image"
       *ngIf="!breedImage && !store.isLoading"
       src="assets/dog-paw-rafiki.svg"
       alt="dog-paintng"
     />
   </div>
   <div class="details">
-    <p [ngClass]="{ hide: !breedImage }">
+    <p data-test="info-text" [ngClass]="{ hide: !breedImage }">
       Poczytaj więcej o tej rasie na wikipedii:
     </p>
     <custom-button
