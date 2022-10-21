@@ -1,10 +1,4 @@
-import {
-  Component,
-  Input,
-  Output,
-  EventEmitter,
-  AfterViewInit,
-} from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { DogBreeds } from '../home-page/home-page.component';
 import { StoreService } from '../services/store.service';
 
@@ -13,13 +7,13 @@ import { StoreService } from '../services/store.service';
   templateUrl: './dropdown.component.html',
   styleUrls: ['./dropdown.component.css'],
 })
-export class DropdownComponent implements AfterViewInit {
+export class DropdownComponent implements OnInit {
   @Input() dogBreeds: DogBreeds | undefined;
   @Output() selectedOption = new EventEmitter<string>();
 
   constructor(public store: StoreService) {}
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
     const storedBreed = sessionStorage.getItem('breed');
     if (!storedBreed) return;
     this.store.breedName = storedBreed;

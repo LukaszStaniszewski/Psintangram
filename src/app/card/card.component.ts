@@ -13,11 +13,17 @@ export class CardComponent implements OnChanges {
   constructor(public store: StoreService) {}
 
   ngOnChanges(): void {
-    const name = this.store.breedName;
+    const name = this.setSavedBreedName(this.store.breedName);
     if (name === VARIABLES.DEFAULT_INPUT_MESSAGE || !name) return;
     const adjustedBreedName = this.adjustBreedName(name);
 
     this.wikiLink = `https://en.wikipedia.org/wiki/${adjustedBreedName}`;
+  }
+
+  setSavedBreedName(name: string) {
+    if (name !== VARIABLES.DEFAULT_INPUT_MESSAGE) return name;
+    const breedName = sessionStorage.getItem('breed');
+    return breedName;
   }
 
   adjustBreedName(name: string): string {
