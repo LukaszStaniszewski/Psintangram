@@ -7,7 +7,7 @@
       alt="{{ store.breedName }}"
     />
     <div *ngIf="store.isLoading">
-      <spinner></spinner>
+      <Spinner></Spinner>
     </div>
     <img
       data-test="default-image"
@@ -20,9 +20,9 @@
     <p data-test="info-text" [ngClass]="{ hide: !breedImage }">
       Poczytaj więcej o tej rasie na wikipedii:
     </p>
-    <custom-button
+    <Custom-button
       [text]="store.breedName | titlecase"
       [url]="wikiLink"
-    ></custom-button>
+    ></Custom-button>
   </div>
 </div>

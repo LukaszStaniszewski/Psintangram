@@ -3,7 +3,7 @@ import { VARIABLES } from 'src/environments/constants';
 import { StoreService } from '../services/store.service';
 
 @Component({
-  selector: 'app-card',
+  selector: 'Card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css'],
 })

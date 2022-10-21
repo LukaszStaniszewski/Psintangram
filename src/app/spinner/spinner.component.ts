@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'spinner',
+  selector: 'Spinner',
   templateUrl: './spinner.component.html',
   styleUrls: ['./spinner.component.css'],
 })

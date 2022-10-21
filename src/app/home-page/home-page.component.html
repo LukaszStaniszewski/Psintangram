@@ -5,13 +5,13 @@
   </div>
   <div class="content">
     <section class="dropdown-container" *ngIf="dogBreeds">
-      <app-dropdown
+      <Dropdown
         (selectedOption)="getChoosenBreed($event)"
         [dogBreeds]="dogBreeds"
-      ></app-dropdown>
+      ></Dropdown>
     </section>
     <section class="card-container">
-      <app-card [breedImage]="breedImage"></app-card>
+      <Card [breedImage]="breedImage"></Card>
     </section>
   </div>
 </div>

@@ -5,7 +5,7 @@ import { StoreService } from '../services/store.service';
 export type DogBreeds = string[];
 
 @Component({
-  selector: 'app-home-page',
+  selector: 'Home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css'],
 })
